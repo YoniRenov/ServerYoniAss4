@@ -1,0 +1,20 @@
+
+
+body {
+  background-image: url("../static/backPic.jpg");
+  background-color: #cccccc;
+  background-position: left top;
+  background-repeat: no-repeat;
+  font-family: Monospace;
+  background-size: cover;
+  text-align: center;
+   grid-template-columns: repeat(1,1fr);
+    color: #ded8c9;
+ }
+
+.errorMSG{
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+

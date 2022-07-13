@@ -1,0 +1,71 @@
+  {% extends 'base.html' %}
+  {% set title='Home Page' %}
+{% block title %}{{ title }} Page{% endblock %}
+
+
+
+
+
+
+
+{% block tohen %}
+    <body class="body">
+    <div class="Title">
+        <h1>Would like to join the best football team fan club?</h1>
+
+      <div class="row">
+        <div class="column">
+          <img src="../static/contactUspic.jpg" style="width:300px">
+        </div>
+        <audio class="audioCon" controls src="../static/ContactMusic.mp3"></audio>
+
+          <form >
+            <br> 
+            <b>
+            <label for="fname">First Name</label>
+            <br>
+            <input type="text" id="fname" name="firstname" placeholder="Your first name">
+            <br>
+            <label for="lname">Last Name</label>
+            <br>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name">
+            <br>
+            <label for="eMail">Email</label>
+            <br>
+            <input type="text" id="eMail" name="eMail" placeholder="....@$$$.com">
+            <br>
+            <label for="country">Country</label>
+            <br>
+            <select id="country" name="country">
+              <option value="Brazil">Brazil</option>
+              <option value="Ukraine">Ukraine</option>
+              <option value="USA">USA</option>
+            </select>
+            <br>
+            <label for="Application free text">Application free text</label>
+           <br>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+            <br>
+            <label for="file share">If there any file you would like to share, you welcome !</label>
+           <br>
+           <input type="file" id="file" name="file">
+            <br>
+          
+           
+        </b>
+            
+          </form>
+          <br> <br>
+          <button onclick="rotate()"> Submit</button>
+          
+          <div class="sendDiv">
+            <div id="imgM"></div>
+           </div>
+       
+      </div>
+    </div>
+    <nav>
+        <a href="Homepage.html">|Home Page|</a></li>
+    </nav>
+    </body>
+{% endblock %}

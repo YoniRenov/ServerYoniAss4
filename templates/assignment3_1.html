@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="{{ url_for('static', filename = 'Assigment3.css')}}">
+{% extends 'base.html' %}
+  {% set title='Home Page' %}
+{% block title %}{{ title }} Page{% endblock %}
+
+{% block tohen %}
+
+    {{ super() }}
+    {% if user_info %}
+
+     <br>
+     <br><br>
+     <br>
+
+     <div class="Newcontainer">
+
+        <h2>My Hobbies</h2>
+        <ul>
+            {% for hobbie in hobbies %}
+                <br>
+                <div>
+                <li>{{ hobbie | upper()}}</li>
+                </div>
+            {% endfor %}
+
+        </ul>
+     </div>
+
+     <div class="Newcontainer">
+
+        <h2>My Favourites Music Artists</h2>
+        <ul>
+            {% for musicArtist in musicArtists %}
+                <br>
+                <div>
+                <li>{{ musicArtist | title()}}</li>
+                </div>
+            {% endfor %}
+
+        </ul>
+     </div>
+
+     <div class="Newcontainer">
+
+        <h2>My Favourite  Films </h2>
+        <ul>
+            {% for film in films %}
+                <br>
+                <div>
+                <li>{{ film | upper()}}</li>
+                </div>
+            {% endfor %}
+
+        </ul>
+     </div>
+
+    {% else %}
+        <h3>No info. Please try to log in again</h3>
+    {% endif %}
+
+    {% endblock %}

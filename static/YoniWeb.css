@@ -1,0 +1,344 @@
+.topNav{/*עיצוב שורת סרגל גלים*/
+
+  overflow: hidden;
+  background-color: rgb(27, 39, 69);
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%;
+
+
+  grid-area: topNav;
+
+
+
+
+}
+ul li a.active {/*עיצוב כפתור פעיל*/
+  background-color: rgb(175, 192, 235);
+  color: #111214;
+  top:0px;
+
+}
+
+
+li {                                     /*איחוד כפתורים בניווט שיהיו ביחד */
+  display: inline;
+
+}
+
+.topNav a:hover { /*מה קורה כשאני עובר עם העכבר על אופציה בסרגל ניווט שעוד לא נבחרה*/
+  background-color: #ddd;
+  color: black;
+}
+.topNav a {/*עיצוב הבלוקים בסרגל הכלים*/
+  float: right;
+  color: #9ba4b3;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+  top:0px;
+  left:0px;
+
+}
+
+#logo{/*עיצוב התמונה של סרגל הכלים*/
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:120px;
+  height:80px;
+  overflow:hidden;
+}
+#imgM{/*הגדרת תמונת מטוס*/
+  visibility: hidden;
+
+  position:absolute;
+  width:100px;
+  height:100px;
+  background-image: url("../static/message.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
+}
+
+.sendDiv{/*מלבן מסתובב בשביל המטוס*/
+  visibility: visible;
+  width:20%;
+  height:100px;
+  position:absolute;
+  animation: 3s linear 0s infinite running orbit ;
+  left:40%;
+}
+@keyframes orbit { /*יכולת סיבוב 360 עבור מלבן*/
+  from { -webkit-transform:rotate(0deg) }
+  to { -webkit-transform:rotate(360deg) } }
+
+
+
+h1{/*עיצוב כותרת*/
+  font-size: 50px;
+  text-align: center;
+  margin: 3rem 0;
+
+
+}
+.Title{/*עיצוב כותרת*/
+  font-size: 50px;
+  text-align: center;
+  margin: 3rem 0;
+  font-weight: normal;
+  color: #444;
+  text-align: center;
+  grid-area: title;
+}
+
+.wrapper{/*עיצוב כל מסגרת הקונטיינרים*/
+
+  width: 90%;
+  margin: 0 auto;
+   grid-area: photos;
+
+}
+.body{/*עיצוב כל גוף האתר*/
+  font-family: 'Montserrat';
+  display: grid;
+  grid-template-rows: 100px 200px;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-areas: 'topNav topNav  topNav topNav'
+  'title title  title title'
+  'photos photos photos textTeam'
+
+  ;
+}
+.audioCon{ /*עיצוב נגן המדיה*/
+  background-image: linear-gradient(to bottom right, rgba(172, 199, 225, 0.4), rgb(27, 39, 69));
+  width: 300px;
+  padding: 50px;
+  margin: 30px;
+  border-radius: 40%;
+
+}
+form{/*עיצוב מסמך*/
+  font-size: 20px;
+}
+input{/*עיצוב אינפוטים*/
+  padding: 10px;
+}
+
+
+.aside {/*עיצוב טקסט צדדי*/
+  font-size: 20px;
+
+  border-image: linear-gradient(to left, rgba(172, 199, 225, 0.4), rgb(27, 39, 69)) 1 0  ;
+
+  background-color: rgba(172, 199, 225, 0.4);
+  border-style: inset;
+  padding: 15px;
+  grid-area: textTeam;
+
+}
+
+.cols{/* דואג לשים את כולם באזור של ראפר ולחלק ל4 טורים ו2 שורות*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+    -ms-flex-pack: center;
+   justify-content: center;
+}
+
+.col{/*כמו קונטיינר*/
+  width: calc(25% - 2rem);
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.container{/*דואג לסדר את הסיבוב של הקונטיינר כמו שצריך*/
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.front,
+.back{/*עיצוב מקדימה ומאחורה של כל קונטיינר*/
+  background-size: cover;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
+  border-radius: 10px;
+  background-position: center;
+  -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  text-align: center;
+  min-height: 280px;
+  height: auto;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.back{/*עיצוב למאחורה*/
+  background: #cedce7;
+  background: -webkit-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+  background: -o-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+  background: linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+}
+
+.front:after{/*עיצוב מקדימה לאחר סיבוב*/
+  position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    content: '';
+    display: block;
+    opacity: .6;
+    background-color: #000;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    border-radius: 10px;
+}
+.container:hover .front,
+.container:hover .back{/*- מה קורה בעת סיבובמיותררררררררררררררררררררררררררררררררררררררררררררררררררררררררר*/
+    -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.back{/* לאחר סיבוב הצד האחורי ייפתח באותו מקום*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.inner{/*עיצוב התנהגות התוכן בקונטיינרים*/
+    -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+            transform: translateY(-50%) translateZ(60px) scale(0.94);
+    top: 50%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    outline: 1px solid transparent;
+    -webkit-perspective: inherit;
+            perspective: inherit;
+    z-index: 2;
+}
+
+.container .back{/*סיבוב קונטיינרים*/
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+
+.container .front{/*סיבוב קונטיינרים*/
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+
+.container:hover .back{/*סיבוב קונטיינרים*/
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.container:hover .front{/*סיבוב קונטיינרים*/
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.front .inner p{/* עיצוב טקסט פנימי בפרונט*/
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.front .inner p:after{/* עיצוב טקסט פנימי בפרונט לאחר סיבוב*/
+  content: '';
+  width: 4rem;
+  height: 2px;
+  position: absolute;
+  background: #C6D4DF;
+  display: block;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: -.75rem;
+}
+
+.front .inner span{/*עיצוב כותרת שחקן לאחר סיבוב*/
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+}
+
+
+
+@media screen and (max-width: 64rem){/*גריד מסך מלא */
+
+  .body{
+
+    grid-template-areas: 'topNav topNav  topNav topNav'
+    'title title  title title'
+    'textTeam textTeam textTeam textTeam'
+
+    'photos photos photos photos'
+
+    ;
+  }
+  .col{
+    width: calc(33.333333% - 2rem);
+  }
+}
+
+@media screen and (max-width: 48rem){/*גריד חצי מסך */
+
+  .col{
+    width: calc(50% - 2rem);
+  }
+}
+
+@media screen and (max-width: 32rem){/*גריד רבע מסך */
+  .col{
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+}
+.Newcontainer {
+    border: darkblue 3px solid;
+    border-radius: 5px;
+    margin: 5px auto;
+    width: 20%;
+    padding: 5px;
+    align-content: center;
+    text-align: center;
+    color: white;
+}
+
+h2 {
+  color: #bad3f1;
+  text-align: center;
+  align-content: center;
+}

@@ -1,0 +1,109 @@
+<link rel="stylesheet" href="{{ url_for('static', filename = 'Assigment3.css')}}">
+{% extends 'base.html' %}
+{% set title='assgnment3_2' %}
+
+
+{% block title %} Users {% endblock %}
+
+{% block tohen %}
+<br>
+    <br>
+    <h1> Fan Club Memberssss</h1>
+   {% if session['Registered'] %}
+        <h1>Hey {{ session['user_Name'] | title() }}</h1>
+    {% endif %}
+
+    <form action="/assgnment3_2">
+        <input type="text" name="user_Name" placeholder="user Name">
+
+        <input type="submit" value="Find">
+    </form>
+
+    {% if user_Name %}
+        <div class="Newcontainer">
+            <h2>{{ user_Name }}</h2>
+            <h3>Email: {{ user_Email }}</h3>
+            <h3>First Name: {{ user_Firstname }}</h3>
+            <h3>Last Name: {{ user_Lastname }}</h3>
+            <h3>User Age: {{ user_Age }}</h3>
+            <h3>User City: {{ user_City }}</h3>
+            <h3>User FavouritePlayer: {{ user_FavPlayer }}</h3>
+        </div>
+
+    {% endif %}
+
+
+    {% if message %}
+        <h3 class="errorMSG">{{ message }}</h3>
+    {% endif %}
+
+    {% if user_dict %}
+        {% for m, n in user_dict.items() %}
+            <div class="Newcontainer">
+                <a>UserName: {{ m }}</a><br>
+                <a>Email: {{ n[0] }}</a><br>
+                <a>First Name: {{ n[1] }}</a><br>
+                <a>Last Name: {{ n[2] }}</a><br>
+                <a>User Age: {{ n[3] }}</a><br>
+                <a>User City: {{ n[4] }}</a><br>
+                <a>User FavouritePlayer: {{ n[5] }}</a><br>
+            </div>
+        {% endfor %}
+
+    {% endif %}
+
+    {% if session['Registered'] %}
+
+        <div class="logOut">
+            <a href="/log_out">
+                <input value="Log Out" class="button" type="submit"/>
+            </a>
+        </div>
+
+        {% if message2 %}
+            <div class="logOut">
+                <h3>{{ message2 }}</h3>
+            </div>
+        {% endif %}
+
+    {% else %}
+        <h3>Register Form</h3>
+        <br>
+        <br>
+        <br>
+        <p>Please fill all fields for making the website more useful for you :)</p>
+        <br>
+        <br>
+        <form action="/assgnment3_2" method="post">
+        <br>
+
+            <input type="text" name="user_name" placeholder="User Name - *" required>
+            <br>
+            <br>
+            <input type="email" name="user_email" placeholder="Email - *" required>
+            <br>
+            <br>
+            <input type="password" name="user_pass" placeholder="user_pass - *" required>
+            <br>
+            <br>
+            <input type="text" name="user_Firstname" placeholder="First Name">
+            <br>
+            <br>
+            <input type="text" name="user_Lastname" placeholder="Last Name">
+            <br>
+            <br>
+            <input type="number" name="user_age" placeholder="Age">
+            <br>
+            <br>
+            <input type="text" name="user_City" placeholder="City">
+            <br>
+            <br>
+            <input type="text" name="user_FavPlayer" placeholder="Favourite Player">
+            <br>
+            <br>
+            <input type="submit" value="Register" class="button">
+        </form>
+    {% endif %}
+
+
+{% endblock %}

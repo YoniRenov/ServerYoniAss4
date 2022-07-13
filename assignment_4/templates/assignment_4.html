@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="{{ url_for('static', filename = 'Assigment3.css') }}">
+{% extends 'base.html' %}
+{% set title='Home Page' %}
+{% block title %}{{ title }} Page{% endblock %}
+{% block page_head_css %}
+<link rel="stylesheet" href="{{ url_for('assignment_4.static', filename='css/assignment_4.css') }}"/>
+{% endblock %}
+
+
+{% block tohen %}
+    <br><br> <br> <br>
+    <div class="Newcontainer">
+        <h2>Insert Form</h2>
+        <form action="/insert_user" method="post">
+            <label for="fname">User ID:</label>
+            <input type="text" name="id" placeholder="ID number.." pattern="[0-9]{6,9}">
+
+            <label for="fname">User Name:</label>
+            <input type="text" name="user_name" placeholder="User name must be at least 5 chars" minlength="5">
+            <label for="fname">User Email:</label>
+            <input type="email" name="email" placeholder="xx@xx.xx"
+                   pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+                   required>
+            <label for="pass">Password:</label>
+            <input type="password" name="password" placeholder="password">
+            <label for="fname">First name:</label>
+            <input type="text" name="first_name" placeholder="first name">
+            <label for="fname">User Last Name:</label>
+            <input type="text" name="last_name" placeholder="last name">
+            <label for="fname">User Age:</label>
+            <input type="number" name="user_age" placeholder="age">
+            <label for="fname">User City:</label>
+            <input type="text" name="city" placeholder="city">
+            <label for="fname">Favorite Player:</label>
+            <input type="text" name="fav_player" placeholder="fav_player">
+            <input type="submit" value = "Insert">
+        </form>
+    </div>
+
+    {% if session['errorMSG'] %}
+    <h4 class = "errorMSG"> {{ session['errorMSG'] }}</h4>
+    {% endif %}
+     {% if session['goodMSG'] %}
+    <h4 class = "goodMSG"> {{ session['goodMSG'] }}</h4>
+    {% endif %}
+
+
+    <div class="Newcontainer">
+        <h2>Update Form</h2>
+        <form action="/update_user" method="post">
+            <label for="fname">User ID:</label>
+            <input type="text" name="id" placeholder="ID number.." pattern="[0-9]{6,9}">
+
+            <label for="fname">User Name:</label>
+            <input type="text" name="user_name" placeholder="User name must be at least 5 chars" minlength="5">
+            <label for="fname">User Email:</label>
+            <input type="email" name="email" placeholder="xx@xx.xx"
+                   pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+                   required>
+            <label for="pass">Password:</label>
+            <input type="password" name="password" placeholder="password">
+            <label for="fname">First name:</label>
+            <input type="text" name="first_name" placeholder="first name">
+            <label for="fname">User Last Name:</label>
+            <input type="text" name="last_name" placeholder="last name">
+            <label for="fname">User Age:</label>
+            <input type="number" name="user_age" placeholder="age">
+            <label for="fname">User City:</label>
+            <input type="text" name="city" placeholder="city">
+            <label for="fname">Favorite Player:</label>
+            <input type="text" name="fav_player" placeholder="fav_player">
+            <input type="submit" value="Update">
+        </form>
+    </div>
+    <div class="Newcontainer">
+        <h2>Delete Form</h2>
+        <form action="/delete_user" method="post">
+            <label for="fname">User ID:</label>
+            <input type="text" name="id" placeholder="ID number.." pattern="[0-9]{6,9}">
+            <input type="submit" value = "Delete">
+        </form>
+    </div>
+
+    {% for user in users %}
+        <div class="Newcontainer">
+            {#            {{ user }}#}
+            <h3>{{ user.user_name }}</h3>
+            <h4>Email: {{ user.email }}</h4>
+            <h4>Age: {{ user.age }}</h4>
+            <h4>City: {{ user.city }}</h4>
+            <h4>Favorite Playe: {{ user.fav_player }}</h4>
+            <h4> User ID: {{ user.user_id}}</h4>
+
+
+
+        </div>
+    {% endfor %}
+
+{% endblock %}

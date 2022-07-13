@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="{{ url_for('static', filename = 'Assigment3.css')}}">
+{% extends 'base.html' %}
+{% set title='Home Page' %}
+{% block title %}{{ title }} assignment4 frontend{% endblock %}
+{% block page_head_css %}
+<link rel="stylesheet" href="{{ url_for('assignment_4.static', filename='css/assignment_4.css') }}">
+{% endblock %}
+
+{% block tohen %}
+
+<h1>Fetch - FrontEnd</h1>
+
+    <div class="row">
+        <div class="col-25">
+            <h3>Choose user ID:</h3>
+        </div>
+        <div class="col-75">
+            <input type="number" name="user_id" id="user_id_ins">
+        </div>
+    </div>
+    <button onclick="myFunction()" class="submit">Click me</button>
+
+    <main>
+
+    </main>
+
+
+    <h1>Requests - BackEnd</h1>
+
+    <form action="/fetch_be" method="get">
+        <div class="row">
+            <div class="col-25">
+                <h3>Choose user ID:</h3>
+            </div>
+            <div class="col-75">
+                <input type="text" name="num_id">
+            </div>
+        </div>
+        <input type="hidden" name="type" value="backend">
+
+        <input type="submit" value="Get id's profile">
+    </form>
+
+    {% if session.start %}
+        {% if session.avatars %}
+            {% for user in session.avatars %}
+                <img src="{{ user.data.avatar }}" alt="pic">
+
+                <h4>email: {{ user.email }}</h4>
+                <h4>Name: {{ user.first_name }}</h4>
+
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+
+    <script defer src="{{ url_for('assignment_4.static', filename = 'js/assignment_4.js') }}"></script>
+
+{% endblock %}

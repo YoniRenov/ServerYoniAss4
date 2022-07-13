@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'YoniWeb.css')}}">
+    <script defer src="{{url_for('static', filename = 'YoniWeb.js')}}"></script>
+
+</head>
+<body>
+<nav class="topNav">
+    <ul>
+         <img src="../static/manchesterCity.png" alt="" id="logo">
+        <li><a href="/">Home</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/assignment3_1">About Me (assignment3_1)</a></li>
+        <li><a href="/assgnment3_2">Users (assignment3_2)</a></li>
+        <li><a href="/assignment_4">Assignment 4</a></li>
+
+    </ul>
+</nav>
+</body>
+</html>

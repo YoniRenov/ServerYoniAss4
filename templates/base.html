@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'YoniWeb.css')}}">
+<script defer src="{{url_for('static', filename = 'YoniWeb.js')}}"></script>
+{% block page_head_css %}{% endblock %}
+
+
+</head>
+<body>
+{% include('Navigation.html') %}
+{% block tohen %}
+
+{% endblock %}
+
+
+</body>
+</html>
